@@ -1,0 +1,1338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AdminDS" targetNamespace="http://tempuri.org/AdminDS.xsd" xmlns:mstns="http://tempuri.org/AdminDS.xsd" xmlns="http://tempuri.org/AdminDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="EmmasConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EmmasConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DataLibrary.Properties.Settings.GlobalReference.Default.EmmasConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmployeeSimpleTableAdapter" GeneratorDataComponentClassName="EmployeeSimpleTableAdapter" Name="EmployeeSimple" UserDataComponentName="EmployeeSimpleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        employee.id, employee.empFirst, employee.empLast, position.posName
+FROM            employee INNER JOIN
+                         position ON employee.posID = position.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="empFirst" DataSetColumn="empFirst" />
+              <Mapping SourceColumn="empLast" DataSetColumn="empLast" />
+              <Mapping SourceColumn="posName" DataSetColumn="posName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmployeeDetailsTableAdapter" GeneratorDataComponentClassName="EmployeeDetailsTableAdapter" Name="EmployeeDetails" UserDataComponentName="EmployeeDetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        employee.id, employee.empFirst, employee.empLast, employee.posID, position.posName, logins.logUser, logins.logPass
+FROM            employee INNER JOIN
+                         position ON employee.posID = position.id INNER JOIN
+                         logins ON employee.id = logins.empID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="empFirst" DataSetColumn="empFirst" />
+              <Mapping SourceColumn="empLast" DataSetColumn="empLast" />
+              <Mapping SourceColumn="posID" DataSetColumn="posID" />
+              <Mapping SourceColumn="posName" DataSetColumn="posName" />
+              <Mapping SourceColumn="logUser" DataSetColumn="logUser" />
+              <Mapping SourceColumn="logPass" DataSetColumn="logPass" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmployeeCreate/DeleteTableAdapter" GeneratorDataComponentClassName="EmployeeCreate_DeleteTableAdapter" Name="EmployeeCreate/Delete" UserDataComponentName="EmployeeCreate/DeleteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        employee.empFirst, employee.empLast, employee.posID, logins.logUser, logins.logPass, logins.empID
+FROM            employee INNER JOIN
+                         logins ON employee.id = logins.empID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="empFirst" DataSetColumn="empFirst" />
+              <Mapping SourceColumn="empLast" DataSetColumn="empLast" />
+              <Mapping SourceColumn="posID" DataSetColumn="posID" />
+              <Mapping SourceColumn="logUser" DataSetColumn="logUser" />
+              <Mapping SourceColumn="logPass" DataSetColumn="logPass" />
+              <Mapping SourceColumn="empID" DataSetColumn="empID" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CreateEmplyee" Modifier="Public" Name="CreateEmplyee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="CreateEmplyee">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO employee
+                         (empFirst, empLast, posID)
+VALUES        (@param2,@param3,@param4)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="param2" ColumnName="empFirst" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.employee" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="empFirst" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param3" ColumnName="empLast" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.employee" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@param3" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="empLast" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param4" ColumnName="posID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.employee" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param4" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="posID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CreateLogin" Modifier="Public" Name="CreateLogin" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="CreateLogin">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO logins
+                         (empID, logUser, logPass)
+VALUES        (@param1,@param2,@param3)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="param1" ColumnName="empID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.logins" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="empID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param2" ColumnName="logUser" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.logins" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="logUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param3" ColumnName="logPass" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.logins" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@param3" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="logPass" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteEmployee" Modifier="Public" Name="DeleteEmployee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteEmployee">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM employee
+WHERE        (id = @param1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="param1" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.employee" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteLogin" Modifier="Public" Name="DeleteLogin" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteLogin">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM logins
+WHERE        (empID = @param1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="param1" ColumnName="empID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.logins" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="empID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmployeeUpdateTableAdapter" GeneratorDataComponentClassName="EmployeeUpdateTableAdapter" Name="EmployeeUpdate" UserDataComponentName="EmployeeUpdateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        employee.empFirst, employee.empLast, employee.posID, logins.logUser, logins.logPass
+FROM            employee INNER JOIN
+                         logins ON employee.id = logins.empID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="empFirst" DataSetColumn="empFirst" />
+              <Mapping SourceColumn="empLast" DataSetColumn="empLast" />
+              <Mapping SourceColumn="posID" DataSetColumn="posID" />
+              <Mapping SourceColumn="logUser" DataSetColumn="logUser" />
+              <Mapping SourceColumn="logPass" DataSetColumn="logPass" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateEmployee" Modifier="Public" Name="UpdateEmployee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateEmployee">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       employee
+SET                empFirst = @param1, empLast = @param2, posID = @param3
+WHERE        (id = @param4)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="param1" ColumnName="empFirst" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.employee" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="empFirst" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param2" ColumnName="empLast" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.employee" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="empLast" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param3" ColumnName="posID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.employee" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param3" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="posID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param4" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.employee" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param4" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateLogin" Modifier="Public" Name="UpdateLogin" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateLogin">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       logins
+SET                logUser = @param1, logPass = @param2
+WHERE        (empID = @param3)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="param1" ColumnName="logUser" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.logins" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="logUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param2" ColumnName="logPass" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.logins" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="logPass" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param3" ColumnName="empID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.logins" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param3" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="empID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerSimpleTableAdapter" GeneratorDataComponentClassName="CustomerSimpleTableAdapter" Name="CustomerSimple" UserDataComponentName="CustomerSimpleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, custFirst + ' ' + custLast AS 'Customer Name', custPhone, custAddress, custCity, custPostal, custEmail
+FROM            customer</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+              <Mapping SourceColumn="custPhone" DataSetColumn="custPhone" />
+              <Mapping SourceColumn="custAddress" DataSetColumn="custAddress" />
+              <Mapping SourceColumn="custCity" DataSetColumn="custCity" />
+              <Mapping SourceColumn="custPostal" DataSetColumn="custPostal" />
+              <Mapping SourceColumn="custEmail" DataSetColumn="custEmail" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerDetailsTableAdapter" GeneratorDataComponentClassName="CustomerDetailsTableAdapter" Name="CustomerDetails" UserDataComponentName="CustomerDetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        customer.id, customer.custFirst, customer.custLast, customer.custPhone, customer.custAddress, customer.custCity, customer.custPostal, customer.custEmail, COUNT(receipt.id) AS '# of Orders'
+FROM            customer INNER JOIN
+                         receipt ON customer.id = receipt.custID
+WHERE        (customer.id = @param1)
+GROUP BY customer.id, customer.custFirst, customer.custLast, customer.custEmail, customer.custPostal, customer.custCity, customer.custAddress, customer.custPhone</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="param1" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="custFirst" DataSetColumn="custFirst" />
+              <Mapping SourceColumn="custLast" DataSetColumn="custLast" />
+              <Mapping SourceColumn="custPhone" DataSetColumn="custPhone" />
+              <Mapping SourceColumn="custAddress" DataSetColumn="custAddress" />
+              <Mapping SourceColumn="custCity" DataSetColumn="custCity" />
+              <Mapping SourceColumn="custPostal" DataSetColumn="custPostal" />
+              <Mapping SourceColumn="custEmail" DataSetColumn="custEmail" />
+              <Mapping SourceColumn="# of Orders" DataSetColumn="# of Orders" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.equipment" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillOwner" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataOwner" GeneratorSourceName="FillOwner" GetMethodModifier="Public" GetMethodName="GetDataOwner" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataOwner" UserSourceName="FillOwner">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        equModel, equSerial
+FROM            equipment
+WHERE        (custID = @param1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="param1" ColumnName="custID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.equipment" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="custID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerUpdateTableAdapter" GeneratorDataComponentClassName="CustomerUpdateTableAdapter" Name="CustomerUpdate" UserDataComponentName="CustomerUpdateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail
+FROM            customer</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="custFirst" DataSetColumn="custFirst" />
+              <Mapping SourceColumn="custLast" DataSetColumn="custLast" />
+              <Mapping SourceColumn="custEmail" DataSetColumn="custEmail" />
+              <Mapping SourceColumn="custCity" DataSetColumn="custCity" />
+              <Mapping SourceColumn="custPostal" DataSetColumn="custPostal" />
+              <Mapping SourceColumn="custAddress" DataSetColumn="custAddress" />
+              <Mapping SourceColumn="custPhone" DataSetColumn="custPhone" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCustomer" Modifier="Public" Name="UpdateCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateCustomer">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       customer
+SET                custFirst = @param1, custLast = @param2, custPhone = @param3, custAddress = @param4, custCity = @param5, custPostal = @param6, custEmail = @param7
+WHERE        (id = @param8)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="param1" ColumnName="custFirst" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="custFirst" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param2" ColumnName="custLast" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="custLast" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param3" ColumnName="custPhone" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="char(10)" DbType="AnsiString" Direction="Input" ParameterName="@param3" Precision="0" ProviderType="Char" Scale="0" Size="10" SourceColumn="custPhone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param4" ColumnName="custAddress" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(60)" DbType="AnsiString" Direction="Input" ParameterName="@param4" Precision="0" ProviderType="VarChar" Scale="0" Size="60" SourceColumn="custAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param5" ColumnName="custCity" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@param5" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="custCity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param6" ColumnName="custPostal" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="char(6)" DbType="AnsiString" Direction="Input" ParameterName="@param6" Precision="0" ProviderType="Char" Scale="0" Size="6" SourceColumn="custPostal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param7" ColumnName="custEmail" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@param7" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="custEmail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param8" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param8" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerCreate/DeleteTableAdapter" GeneratorDataComponentClassName="CustomerCreate_DeleteTableAdapter" Name="CustomerCreate/Delete" UserDataComponentName="CustomerCreate/DeleteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        customer.*
+FROM            customer</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="custFirst" DataSetColumn="custFirst" />
+              <Mapping SourceColumn="custLast" DataSetColumn="custLast" />
+              <Mapping SourceColumn="custPhone" DataSetColumn="custPhone" />
+              <Mapping SourceColumn="custAddress" DataSetColumn="custAddress" />
+              <Mapping SourceColumn="custCity" DataSetColumn="custCity" />
+              <Mapping SourceColumn="custPostal" DataSetColumn="custPostal" />
+              <Mapping SourceColumn="custEmail" DataSetColumn="custEmail" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CreateCustomer" Modifier="Public" Name="CreateCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CreateCustomer">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO customer
+                         (custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail)
+VALUES        (@param1,@param2,@param3,@param4,@param5,@param6,@param7)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="param1" ColumnName="custFirst" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="custFirst" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param2" ColumnName="custLast" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="custLast" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param3" ColumnName="custPhone" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="char(10)" DbType="AnsiString" Direction="Input" ParameterName="@param3" Precision="0" ProviderType="Char" Scale="0" Size="10" SourceColumn="custPhone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param4" ColumnName="custAddress" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(60)" DbType="AnsiString" Direction="Input" ParameterName="@param4" Precision="0" ProviderType="VarChar" Scale="0" Size="60" SourceColumn="custAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param5" ColumnName="custCity" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@param5" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="custCity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param6" ColumnName="custPostal" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="char(6)" DbType="AnsiString" Direction="Input" ParameterName="@param6" Precision="0" ProviderType="Char" Scale="0" Size="6" SourceColumn="custPostal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param7" ColumnName="custEmail" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@param7" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="custEmail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CreateEquipment" Modifier="Public" Name="CreateEquipment" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="CreateEquipment">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO equipment
+                         (equModel, equSerial, custID, equtypeID, equManuID)
+VALUES        (@param1,@param2,@param3,@param4,@param5); 
+SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail FROM customer WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="param1" ColumnName="equModel" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.equipment" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="equModel" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param2" ColumnName="equSerial" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.equipment" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="equSerial" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param3" ColumnName="custID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.equipment" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param3" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="custID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param4" ColumnName="equtypeID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.equipment" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param4" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="equtypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="param5" ColumnName="equManuID" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.equipment" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param5" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="equManuID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCustomer" Modifier="Public" Name="DeleteCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteCustomer">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM customer
+WHERE        (id = @param1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="param1" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.customer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WeeklySalesReportTableAdapter" GeneratorDataComponentClassName="WeeklySalesReportTableAdapter" Name="WeeklySalesReport" UserDataComponentName="WeeklySalesReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        receipt.ordNumber, receipt.ordDate, receipt.paymentID, receipt.custID, receipt.empID, customer.custFirst + ' ' + customer.custLast AS 'Customer', employee.empFirst + ' ' + employee.empLast AS 'Employee', 
+                         payment.payType AS 'Payment Type', receipt.ordPaid
+FROM            receipt INNER JOIN
+                         customer ON receipt.custID = customer.id INNER JOIN
+                         employee ON receipt.empID = employee.id INNER JOIN
+                         payment ON receipt.paymentID = payment.id
+WHERE        (receipt.ordDate &gt; @param1) AND (receipt.ordDate &lt; @param2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="param1" ColumnName="ordDate" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.receipt" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="ordDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param2" ColumnName="ordDate" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.receipt" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="ordDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ordNumber" DataSetColumn="ordNumber" />
+              <Mapping SourceColumn="ordDate" DataSetColumn="ordDate" />
+              <Mapping SourceColumn="paymentID" DataSetColumn="paymentID" />
+              <Mapping SourceColumn="custID" DataSetColumn="custID" />
+              <Mapping SourceColumn="empID" DataSetColumn="empID" />
+              <Mapping SourceColumn="Customer" DataSetColumn="Customer" />
+              <Mapping SourceColumn="Employee" DataSetColumn="Employee" />
+              <Mapping SourceColumn="Payment Type" DataSetColumn="Payment Type" />
+              <Mapping SourceColumn="ordPaid" DataSetColumn="ordPaid" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WarrantyReportTableAdapter" GeneratorDataComponentClassName="WarrantyReportTableAdapter" Name="WarrantyReport" UserDataComponentName="WarrantyReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        service_order.id, service_order.serordDateIn, service_order.serordDateOut, service_order.serordIssue, service_order.serordWarranty, service_order.receiptID, service_order.serviceID, service_order.equipID, 
+                         receipt.ordNumber, service.serName, service.serPrice, receipt.ordDate, service.serDescription, equipment.equModel, equipment.equSerial, manufacturer.manName, 
+                         customer.custFirst + ' ' + customer.custLast AS 'Customer'
+FROM            service_order INNER JOIN
+                         service ON service_order.serviceID = service.id INNER JOIN
+                         receipt ON service_order.receiptID = receipt.id INNER JOIN
+                         customer ON receipt.custID = customer.id INNER JOIN
+                         equipment ON service_order.equipID = equipment.id AND customer.id = equipment.custID INNER JOIN
+                         manufacturer ON equipment.equManuID = manufacturer.id
+WHERE        (service_order.serordWarranty = 'True') AND (receipt.ordDate &gt; @param1) AND (receipt.ordDate &lt; @param2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="param1" ColumnName="ordDate" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.receipt" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@param1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="ordDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="param2" ColumnName="ordDate" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.receipt" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@param2" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="ordDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="serordDateIn" DataSetColumn="serordDateIn" />
+              <Mapping SourceColumn="serordDateOut" DataSetColumn="serordDateOut" />
+              <Mapping SourceColumn="serordIssue" DataSetColumn="serordIssue" />
+              <Mapping SourceColumn="serordWarranty" DataSetColumn="serordWarranty" />
+              <Mapping SourceColumn="receiptID" DataSetColumn="receiptID" />
+              <Mapping SourceColumn="serviceID" DataSetColumn="serviceID" />
+              <Mapping SourceColumn="equipID" DataSetColumn="equipID" />
+              <Mapping SourceColumn="ordNumber" DataSetColumn="ordNumber" />
+              <Mapping SourceColumn="serName" DataSetColumn="serName" />
+              <Mapping SourceColumn="serPrice" DataSetColumn="serPrice" />
+              <Mapping SourceColumn="ordDate" DataSetColumn="ordDate" />
+              <Mapping SourceColumn="serDescription" DataSetColumn="serDescription" />
+              <Mapping SourceColumn="equModel" DataSetColumn="equModel" />
+              <Mapping SourceColumn="equSerial" DataSetColumn="equSerial" />
+              <Mapping SourceColumn="manName" DataSetColumn="manName" />
+              <Mapping SourceColumn="Customer" DataSetColumn="Customer" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ManufacturerTableAdapter" GeneratorDataComponentClassName="ManufacturerTableAdapter" Name="Manufacturer" UserDataComponentName="ManufacturerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.manufacturer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [manufacturer] WHERE (((@IsNull_manName = 1 AND [manName] IS NULL) OR ([manName] = @Original_manName)) AND ([id] = @Original_id))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_manName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="manName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_manName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="manName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [manufacturer] ([manName]) VALUES (@manName);
+SELECT manName, id FROM manufacturer WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@manName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="manName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT manName, id FROM manufacturer</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [manufacturer] SET [manName] = @manName WHERE (((@IsNull_manName = 1 AND [manName] IS NULL) OR ([manName] = @Original_manName)) AND ([id] = @Original_id));
+SELECT manName, id FROM manufacturer WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@manName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="manName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_manName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="manName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_manName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="manName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.manufacturer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="manName" DataSetColumn="manName" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PositionTableAdapter" GeneratorDataComponentClassName="PositionTableAdapter" Name="Position" UserDataComponentName="PositionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.position" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [position] WHERE (([id] = @Original_id) AND ((@IsNull_posName = 1 AND [posName] IS NULL) OR ([posName] = @Original_posName)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_posName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="posName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_posName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="posName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [position] ([posName]) VALUES (@posName);
+SELECT id, posName FROM position WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@posName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="posName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, posName
+FROM            position</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [position] SET [posName] = @posName WHERE (([id] = @Original_id) AND ((@IsNull_posName = 1 AND [posName] IS NULL) OR ([posName] = @Original_posName)));
+SELECT id, posName FROM position WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@posName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="posName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_posName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="posName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_posName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="posName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.position" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="posName" DataSetColumn="posName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Equip_typeTableAdapter" GeneratorDataComponentClassName="Equip_typeTableAdapter" Name="Equip_type" UserDataComponentName="Equip_typeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.equip_type" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [equip_type] WHERE (([id] = @Original_id) AND ((@IsNull_eqtType = 1 AND [eqtType] IS NULL) OR ([eqtType] = @Original_eqtType)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_eqtType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="eqtType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_eqtType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="eqtType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [equip_type] ([eqtType]) VALUES (@eqtType);
+SELECT id, eqtType FROM equip_type WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@eqtType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="eqtType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, eqtType
+FROM            equip_type</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [equip_type] SET [eqtType] = @eqtType WHERE (([id] = @Original_id) AND ((@IsNull_eqtType = 1 AND [eqtType] IS NULL) OR ([eqtType] = @Original_eqtType)));
+SELECT id, eqtType FROM equip_type WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@eqtType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="eqtType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_eqtType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="eqtType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_eqtType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="eqtType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.equip_type" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="eqtType" DataSetColumn="eqtType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProductTableAdapter" GeneratorDataComponentClassName="ProductTableAdapter" Name="Product" UserDataComponentName="ProductTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [product] WHERE (([id] = @Original_id) AND ((@IsNull_prodName = 1 AND [prodName] IS NULL) OR ([prodName] = @Original_prodName)) AND ((@IsNull_prodDescription = 1 AND [prodDescription] IS NULL) OR ([prodDescription] = @Original_prodDescription)) AND ((@IsNull_prodBrand = 1 AND [prodBrand] IS NULL) OR ([prodBrand] = @Original_prodBrand)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_prodName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prodName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prodName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_prodDescription" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prodDescription" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prodDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodDescription" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_prodBrand" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prodBrand" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prodBrand" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodBrand" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [product] ([prodName], [prodDescription], [prodBrand]) VALUES (@prodName, @prodDescription, @prodBrand);
+SELECT id, prodName, prodDescription, prodBrand FROM product WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prodName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prodDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodDescription" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prodBrand" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodBrand" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, prodName, prodDescription, prodBrand
+FROM            product</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [product] SET [prodName] = @prodName, [prodDescription] = @prodDescription, [prodBrand] = @prodBrand WHERE (([id] = @Original_id) AND ((@IsNull_prodName = 1 AND [prodName] IS NULL) OR ([prodName] = @Original_prodName)) AND ((@IsNull_prodDescription = 1 AND [prodDescription] IS NULL) OR ([prodDescription] = @Original_prodDescription)) AND ((@IsNull_prodBrand = 1 AND [prodBrand] IS NULL) OR ([prodBrand] = @Original_prodBrand)));
+SELECT id, prodName, prodDescription, prodBrand FROM product WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prodName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prodDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodDescription" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prodBrand" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodBrand" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_prodName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prodName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prodName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_prodDescription" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prodDescription" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prodDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodDescription" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_prodBrand" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prodBrand" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prodBrand" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prodBrand" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.product" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="prodName" DataSetColumn="prodName" />
+              <Mapping SourceColumn="prodDescription" DataSetColumn="prodDescription" />
+              <Mapping SourceColumn="prodBrand" DataSetColumn="prodBrand" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="serviceTableAdapter" GeneratorDataComponentClassName="serviceTableAdapter" Name="service" UserDataComponentName="serviceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="dbo.service" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [service] WHERE (([id] = @Original_id) AND ((@IsNull_serName = 1 AND [serName] IS NULL) OR ([serName] = @Original_serName)) AND ((@IsNull_serDescription = 1 AND [serDescription] IS NULL) OR ([serDescription] = @Original_serDescription)) AND ((@IsNull_serPrice = 1 AND [serPrice] IS NULL) OR ([serPrice] = @Original_serPrice)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_serName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="serName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_serName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="serName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_serDescription" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="serDescription" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_serDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="serDescription" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_serPrice" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="serPrice" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_serPrice" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="serPrice" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [service] ([serName], [serDescription], [serPrice]) VALUES (@serName, @serDescription, @serPrice);
+SELECT id, serName, serDescription, serPrice FROM service WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@serName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="serName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@serDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="serDescription" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@serPrice" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="serPrice" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, serName, serDescription, serPrice
+FROM            service</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [service] SET [serName] = @serName, [serDescription] = @serDescription, [serPrice] = @serPrice WHERE (([id] = @Original_id) AND ((@IsNull_serName = 1 AND [serName] IS NULL) OR ([serName] = @Original_serName)) AND ((@IsNull_serDescription = 1 AND [serDescription] IS NULL) OR ([serDescription] = @Original_serDescription)) AND ((@IsNull_serPrice = 1 AND [serPrice] IS NULL) OR ([serPrice] = @Original_serPrice)));
+SELECT id, serName, serDescription, serPrice FROM service WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@serName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="serName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@serDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="serDescription" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@serPrice" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="serPrice" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_serName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="serName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_serName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="serName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_serDescription" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="serDescription" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_serDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="serDescription" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_serPrice" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="serPrice" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_serPrice" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="serPrice" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="[C:\USERS\SCOTT\DESKTOP\FINAL-PROJECT-MASTER\SKADE\DATALIBRARY\DATALIBRARY\EMMAS.MDF].dbo.service" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="serName" DataSetColumn="serName" />
+              <Mapping SourceColumn="serDescription" DataSetColumn="serDescription" />
+              <Mapping SourceColumn="serPrice" DataSetColumn="serPrice" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AdminDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="AdminDS" msprop:Generator_UserDSName="AdminDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EmployeeSimple" msprop:Generator_TableClassName="EmployeeSimpleDataTable" msprop:Generator_TableVarName="tableEmployeeSimple" msprop:Generator_TablePropName="EmployeeSimple" msprop:Generator_RowDeletingName="EmployeeSimpleRowDeleting" msprop:Generator_RowChangingName="EmployeeSimpleRowChanging" msprop:Generator_RowEvHandlerName="EmployeeSimpleRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeSimpleRowDeleted" msprop:Generator_UserTableName="EmployeeSimple" msprop:Generator_RowChangedName="EmployeeSimpleRowChanged" msprop:Generator_RowEvArgName="EmployeeSimpleRowChangeEvent" msprop:Generator_RowClassName="EmployeeSimpleRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="empFirst" msprop:Generator_ColumnVarNameInTable="columnempFirst" msprop:Generator_ColumnPropNameInRow="empFirst" msprop:Generator_ColumnPropNameInTable="empFirstColumn" msprop:Generator_UserColumnName="empFirst" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="empLast" msprop:Generator_ColumnVarNameInTable="columnempLast" msprop:Generator_ColumnPropNameInRow="empLast" msprop:Generator_ColumnPropNameInTable="empLastColumn" msprop:Generator_UserColumnName="empLast" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="posName" msprop:Generator_ColumnVarNameInTable="columnposName" msprop:Generator_ColumnPropNameInRow="posName" msprop:Generator_ColumnPropNameInTable="posNameColumn" msprop:Generator_UserColumnName="posName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EmployeeDetails" msprop:Generator_TableClassName="EmployeeDetailsDataTable" msprop:Generator_TableVarName="tableEmployeeDetails" msprop:Generator_TablePropName="EmployeeDetails" msprop:Generator_RowDeletingName="EmployeeDetailsRowDeleting" msprop:Generator_RowChangingName="EmployeeDetailsRowChanging" msprop:Generator_RowEvHandlerName="EmployeeDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeDetailsRowDeleted" msprop:Generator_UserTableName="EmployeeDetails" msprop:Generator_RowChangedName="EmployeeDetailsRowChanged" msprop:Generator_RowEvArgName="EmployeeDetailsRowChangeEvent" msprop:Generator_RowClassName="EmployeeDetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="empFirst" msprop:Generator_ColumnVarNameInTable="columnempFirst" msprop:Generator_ColumnPropNameInRow="empFirst" msprop:Generator_ColumnPropNameInTable="empFirstColumn" msprop:Generator_UserColumnName="empFirst" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="empLast" msprop:Generator_ColumnVarNameInTable="columnempLast" msprop:Generator_ColumnPropNameInRow="empLast" msprop:Generator_ColumnPropNameInTable="empLastColumn" msprop:Generator_UserColumnName="empLast" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="posID" msprop:Generator_ColumnVarNameInTable="columnposID" msprop:Generator_ColumnPropNameInRow="posID" msprop:Generator_ColumnPropNameInTable="posIDColumn" msprop:Generator_UserColumnName="posID" type="xs:int" />
+              <xs:element name="posName" msprop:Generator_ColumnVarNameInTable="columnposName" msprop:Generator_ColumnPropNameInRow="posName" msprop:Generator_ColumnPropNameInTable="posNameColumn" msprop:Generator_UserColumnName="posName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="logUser" msprop:Generator_ColumnVarNameInTable="columnlogUser" msprop:Generator_ColumnPropNameInRow="logUser" msprop:Generator_ColumnPropNameInTable="logUserColumn" msprop:Generator_UserColumnName="logUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="logPass" msprop:Generator_ColumnVarNameInTable="columnlogPass" msprop:Generator_ColumnPropNameInRow="logPass" msprop:Generator_ColumnPropNameInTable="logPassColumn" msprop:Generator_UserColumnName="logPass">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EmployeeCreate_x002F_Delete" msprop:Generator_TableClassName="_EmployeeCreate_DeleteDataTable" msprop:Generator_TableVarName="_tableEmployeeCreate_Delete" msprop:Generator_TablePropName="_EmployeeCreate_Delete" msprop:Generator_RowDeletingName="_EmployeeCreate_DeleteRowDeleting" msprop:Generator_RowChangingName="_EmployeeCreate_DeleteRowChanging" msprop:Generator_RowEvHandlerName="_EmployeeCreate_DeleteRowChangeEventHandler" msprop:Generator_RowDeletedName="_EmployeeCreate_DeleteRowDeleted" msprop:Generator_UserTableName="EmployeeCreate/Delete" msprop:Generator_RowChangedName="_EmployeeCreate_DeleteRowChanged" msprop:Generator_RowEvArgName="_EmployeeCreate_DeleteRowChangeEvent" msprop:Generator_RowClassName="_EmployeeCreate_DeleteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="empFirst" msprop:Generator_ColumnVarNameInTable="columnempFirst" msprop:Generator_ColumnPropNameInRow="empFirst" msprop:Generator_ColumnPropNameInTable="empFirstColumn" msprop:Generator_UserColumnName="empFirst" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="empLast" msprop:Generator_ColumnVarNameInTable="columnempLast" msprop:Generator_ColumnPropNameInRow="empLast" msprop:Generator_ColumnPropNameInTable="empLastColumn" msprop:Generator_UserColumnName="empLast" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="posID" msprop:Generator_ColumnVarNameInTable="columnposID" msprop:Generator_ColumnPropNameInRow="posID" msprop:Generator_ColumnPropNameInTable="posIDColumn" msprop:Generator_UserColumnName="posID" type="xs:int" />
+              <xs:element name="logUser" msprop:Generator_ColumnVarNameInTable="columnlogUser" msprop:Generator_ColumnPropNameInRow="logUser" msprop:Generator_ColumnPropNameInTable="logUserColumn" msprop:Generator_UserColumnName="logUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="logPass" msprop:Generator_ColumnVarNameInTable="columnlogPass" msprop:Generator_ColumnPropNameInRow="logPass" msprop:Generator_ColumnPropNameInTable="logPassColumn" msprop:Generator_UserColumnName="logPass">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="empID" msprop:Generator_ColumnVarNameInTable="columnempID" msprop:Generator_ColumnPropNameInRow="empID" msprop:Generator_ColumnPropNameInTable="empIDColumn" msprop:Generator_UserColumnName="empID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EmployeeUpdate" msprop:Generator_TableClassName="EmployeeUpdateDataTable" msprop:Generator_TableVarName="tableEmployeeUpdate" msprop:Generator_TablePropName="EmployeeUpdate" msprop:Generator_RowDeletingName="EmployeeUpdateRowDeleting" msprop:Generator_RowChangingName="EmployeeUpdateRowChanging" msprop:Generator_RowEvHandlerName="EmployeeUpdateRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeUpdateRowDeleted" msprop:Generator_UserTableName="EmployeeUpdate" msprop:Generator_RowChangedName="EmployeeUpdateRowChanged" msprop:Generator_RowEvArgName="EmployeeUpdateRowChangeEvent" msprop:Generator_RowClassName="EmployeeUpdateRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="empFirst" msprop:Generator_ColumnVarNameInTable="columnempFirst" msprop:Generator_ColumnPropNameInRow="empFirst" msprop:Generator_ColumnPropNameInTable="empFirstColumn" msprop:Generator_UserColumnName="empFirst" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="empLast" msprop:Generator_ColumnVarNameInTable="columnempLast" msprop:Generator_ColumnPropNameInRow="empLast" msprop:Generator_ColumnPropNameInTable="empLastColumn" msprop:Generator_UserColumnName="empLast" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="posID" msprop:Generator_ColumnVarNameInTable="columnposID" msprop:Generator_ColumnPropNameInRow="posID" msprop:Generator_ColumnPropNameInTable="posIDColumn" msprop:Generator_UserColumnName="posID" type="xs:int" />
+              <xs:element name="logUser" msprop:Generator_ColumnVarNameInTable="columnlogUser" msprop:Generator_ColumnPropNameInRow="logUser" msprop:Generator_ColumnPropNameInTable="logUserColumn" msprop:Generator_UserColumnName="logUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="logPass" msprop:Generator_ColumnVarNameInTable="columnlogPass" msprop:Generator_ColumnPropNameInRow="logPass" msprop:Generator_ColumnPropNameInTable="logPassColumn" msprop:Generator_UserColumnName="logPass">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CustomerSimple" msprop:Generator_TableClassName="CustomerSimpleDataTable" msprop:Generator_TableVarName="tableCustomerSimple" msprop:Generator_TablePropName="CustomerSimple" msprop:Generator_RowDeletingName="CustomerSimpleRowDeleting" msprop:Generator_RowChangingName="CustomerSimpleRowChanging" msprop:Generator_RowEvHandlerName="CustomerSimpleRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerSimpleRowDeleted" msprop:Generator_UserTableName="CustomerSimple" msprop:Generator_RowChangedName="CustomerSimpleRowChanged" msprop:Generator_RowEvArgName="CustomerSimpleRowChangeEvent" msprop:Generator_RowClassName="CustomerSimpleRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="Customer_x0020_Name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn" msprop:Generator_UserColumnName="Customer Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custPhone" msprop:Generator_ColumnVarNameInTable="columncustPhone" msprop:Generator_ColumnPropNameInRow="custPhone" msprop:Generator_ColumnPropNameInTable="custPhoneColumn" msprop:Generator_UserColumnName="custPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custAddress" msprop:Generator_ColumnVarNameInTable="columncustAddress" msprop:Generator_ColumnPropNameInRow="custAddress" msprop:Generator_ColumnPropNameInTable="custAddressColumn" msprop:Generator_UserColumnName="custAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custCity" msprop:Generator_ColumnVarNameInTable="columncustCity" msprop:Generator_ColumnPropNameInRow="custCity" msprop:Generator_ColumnPropNameInTable="custCityColumn" msprop:Generator_UserColumnName="custCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custPostal" msprop:Generator_ColumnVarNameInTable="columncustPostal" msprop:Generator_ColumnPropNameInRow="custPostal" msprop:Generator_ColumnPropNameInTable="custPostalColumn" msprop:Generator_UserColumnName="custPostal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custEmail" msprop:Generator_ColumnVarNameInTable="columncustEmail" msprop:Generator_ColumnPropNameInRow="custEmail" msprop:Generator_ColumnPropNameInTable="custEmailColumn" msprop:Generator_UserColumnName="custEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CustomerDetails" msprop:Generator_TableClassName="CustomerDetailsDataTable" msprop:Generator_TableVarName="tableCustomerDetails" msprop:Generator_TablePropName="CustomerDetails" msprop:Generator_RowDeletingName="CustomerDetailsRowDeleting" msprop:Generator_RowChangingName="CustomerDetailsRowChanging" msprop:Generator_RowEvHandlerName="CustomerDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerDetailsRowDeleted" msprop:Generator_UserTableName="CustomerDetails" msprop:Generator_RowChangedName="CustomerDetailsRowChanged" msprop:Generator_RowEvArgName="CustomerDetailsRowChangeEvent" msprop:Generator_RowClassName="CustomerDetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="custFirst" msprop:Generator_ColumnVarNameInTable="columncustFirst" msprop:Generator_ColumnPropNameInRow="custFirst" msprop:Generator_ColumnPropNameInTable="custFirstColumn" msprop:Generator_UserColumnName="custFirst" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custLast" msprop:Generator_ColumnVarNameInTable="columncustLast" msprop:Generator_ColumnPropNameInRow="custLast" msprop:Generator_ColumnPropNameInTable="custLastColumn" msprop:Generator_UserColumnName="custLast" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custPhone" msprop:Generator_ColumnVarNameInTable="columncustPhone" msprop:Generator_ColumnPropNameInRow="custPhone" msprop:Generator_ColumnPropNameInTable="custPhoneColumn" msprop:Generator_UserColumnName="custPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custAddress" msprop:Generator_ColumnVarNameInTable="columncustAddress" msprop:Generator_ColumnPropNameInRow="custAddress" msprop:Generator_ColumnPropNameInTable="custAddressColumn" msprop:Generator_UserColumnName="custAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custCity" msprop:Generator_ColumnVarNameInTable="columncustCity" msprop:Generator_ColumnPropNameInRow="custCity" msprop:Generator_ColumnPropNameInTable="custCityColumn" msprop:Generator_UserColumnName="custCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custPostal" msprop:Generator_ColumnVarNameInTable="columncustPostal" msprop:Generator_ColumnPropNameInRow="custPostal" msprop:Generator_ColumnPropNameInTable="custPostalColumn" msprop:Generator_UserColumnName="custPostal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custEmail" msprop:Generator_ColumnVarNameInTable="columncustEmail" msprop:Generator_ColumnPropNameInRow="custEmail" msprop:Generator_ColumnPropNameInTable="custEmailColumn" msprop:Generator_UserColumnName="custEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="_x0023__x0020_of_x0020_Orders" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="_column__of_Orders" msprop:Generator_ColumnPropNameInRow="___of_Orders" msprop:Generator_ColumnPropNameInTable="___of_OrdersColumn" msprop:Generator_UserColumnName="# of Orders" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CustomerUpdate" msprop:Generator_TableClassName="CustomerUpdateDataTable" msprop:Generator_TableVarName="tableCustomerUpdate" msprop:Generator_TablePropName="CustomerUpdate" msprop:Generator_RowDeletingName="CustomerUpdateRowDeleting" msprop:Generator_RowChangingName="CustomerUpdateRowChanging" msprop:Generator_RowEvHandlerName="CustomerUpdateRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerUpdateRowDeleted" msprop:Generator_UserTableName="CustomerUpdate" msprop:Generator_RowChangedName="CustomerUpdateRowChanged" msprop:Generator_RowEvArgName="CustomerUpdateRowChangeEvent" msprop:Generator_RowClassName="CustomerUpdateRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="custFirst" msprop:Generator_ColumnVarNameInTable="columncustFirst" msprop:Generator_ColumnPropNameInRow="custFirst" msprop:Generator_ColumnPropNameInTable="custFirstColumn" msprop:Generator_UserColumnName="custFirst" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custLast" msprop:Generator_ColumnVarNameInTable="columncustLast" msprop:Generator_ColumnPropNameInRow="custLast" msprop:Generator_ColumnPropNameInTable="custLastColumn" msprop:Generator_UserColumnName="custLast" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custEmail" msprop:Generator_ColumnVarNameInTable="columncustEmail" msprop:Generator_ColumnPropNameInRow="custEmail" msprop:Generator_ColumnPropNameInTable="custEmailColumn" msprop:Generator_UserColumnName="custEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custCity" msprop:Generator_ColumnVarNameInTable="columncustCity" msprop:Generator_ColumnPropNameInRow="custCity" msprop:Generator_ColumnPropNameInTable="custCityColumn" msprop:Generator_UserColumnName="custCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custPostal" msprop:Generator_ColumnVarNameInTable="columncustPostal" msprop:Generator_ColumnPropNameInRow="custPostal" msprop:Generator_ColumnPropNameInTable="custPostalColumn" msprop:Generator_UserColumnName="custPostal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custAddress" msprop:Generator_ColumnVarNameInTable="columncustAddress" msprop:Generator_ColumnPropNameInRow="custAddress" msprop:Generator_ColumnPropNameInTable="custAddressColumn" msprop:Generator_UserColumnName="custAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custPhone" msprop:Generator_ColumnVarNameInTable="columncustPhone" msprop:Generator_ColumnPropNameInRow="custPhone" msprop:Generator_ColumnPropNameInTable="custPhoneColumn" msprop:Generator_UserColumnName="custPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CustomerCreate_x002F_Delete" msprop:Generator_TableClassName="_CustomerCreate_DeleteDataTable" msprop:Generator_TableVarName="_tableCustomerCreate_Delete" msprop:Generator_TablePropName="_CustomerCreate_Delete" msprop:Generator_RowDeletingName="_CustomerCreate_DeleteRowDeleting" msprop:Generator_RowChangingName="_CustomerCreate_DeleteRowChanging" msprop:Generator_RowEvHandlerName="_CustomerCreate_DeleteRowChangeEventHandler" msprop:Generator_RowDeletedName="_CustomerCreate_DeleteRowDeleted" msprop:Generator_UserTableName="CustomerCreate/Delete" msprop:Generator_RowChangedName="_CustomerCreate_DeleteRowChanged" msprop:Generator_RowEvArgName="_CustomerCreate_DeleteRowChangeEvent" msprop:Generator_RowClassName="_CustomerCreate_DeleteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="custFirst" msprop:Generator_ColumnVarNameInTable="columncustFirst" msprop:Generator_ColumnPropNameInRow="custFirst" msprop:Generator_ColumnPropNameInTable="custFirstColumn" msprop:Generator_UserColumnName="custFirst" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custLast" msprop:Generator_ColumnVarNameInTable="columncustLast" msprop:Generator_ColumnPropNameInRow="custLast" msprop:Generator_ColumnPropNameInTable="custLastColumn" msprop:Generator_UserColumnName="custLast" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custPhone" msprop:Generator_ColumnVarNameInTable="columncustPhone" msprop:Generator_ColumnPropNameInRow="custPhone" msprop:Generator_ColumnPropNameInTable="custPhoneColumn" msprop:Generator_UserColumnName="custPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custAddress" msprop:Generator_ColumnVarNameInTable="columncustAddress" msprop:Generator_ColumnPropNameInRow="custAddress" msprop:Generator_ColumnPropNameInTable="custAddressColumn" msprop:Generator_UserColumnName="custAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custCity" msprop:Generator_ColumnVarNameInTable="columncustCity" msprop:Generator_ColumnPropNameInRow="custCity" msprop:Generator_ColumnPropNameInTable="custCityColumn" msprop:Generator_UserColumnName="custCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custPostal" msprop:Generator_ColumnVarNameInTable="columncustPostal" msprop:Generator_ColumnPropNameInRow="custPostal" msprop:Generator_ColumnPropNameInTable="custPostalColumn" msprop:Generator_UserColumnName="custPostal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custEmail" msprop:Generator_ColumnVarNameInTable="columncustEmail" msprop:Generator_ColumnPropNameInRow="custEmail" msprop:Generator_ColumnPropNameInTable="custEmailColumn" msprop:Generator_UserColumnName="custEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WeeklySalesReport" msprop:Generator_TableClassName="WeeklySalesReportDataTable" msprop:Generator_TableVarName="tableWeeklySalesReport" msprop:Generator_TablePropName="WeeklySalesReport" msprop:Generator_RowDeletingName="WeeklySalesReportRowDeleting" msprop:Generator_RowChangingName="WeeklySalesReportRowChanging" msprop:Generator_RowEvHandlerName="WeeklySalesReportRowChangeEventHandler" msprop:Generator_RowDeletedName="WeeklySalesReportRowDeleted" msprop:Generator_UserTableName="WeeklySalesReport" msprop:Generator_RowChangedName="WeeklySalesReportRowChanged" msprop:Generator_RowEvArgName="WeeklySalesReportRowChangeEvent" msprop:Generator_RowClassName="WeeklySalesReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ordNumber" msprop:Generator_ColumnVarNameInTable="columnordNumber" msprop:Generator_ColumnPropNameInRow="ordNumber" msprop:Generator_ColumnPropNameInTable="ordNumberColumn" msprop:Generator_UserColumnName="ordNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ordDate" msprop:Generator_ColumnVarNameInTable="columnordDate" msprop:Generator_ColumnPropNameInRow="ordDate" msprop:Generator_ColumnPropNameInTable="ordDateColumn" msprop:Generator_UserColumnName="ordDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="paymentID" msprop:Generator_ColumnVarNameInTable="columnpaymentID" msprop:Generator_ColumnPropNameInRow="paymentID" msprop:Generator_ColumnPropNameInTable="paymentIDColumn" msprop:Generator_UserColumnName="paymentID" type="xs:int" />
+              <xs:element name="custID" msprop:Generator_ColumnVarNameInTable="columncustID" msprop:Generator_ColumnPropNameInRow="custID" msprop:Generator_ColumnPropNameInTable="custIDColumn" msprop:Generator_UserColumnName="custID" type="xs:int" />
+              <xs:element name="empID" msprop:Generator_ColumnVarNameInTable="columnempID" msprop:Generator_ColumnPropNameInRow="empID" msprop:Generator_ColumnPropNameInTable="empIDColumn" msprop:Generator_UserColumnName="empID" type="xs:int" />
+              <xs:element name="Customer" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Employee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployee" msprop:Generator_ColumnPropNameInRow="Employee" msprop:Generator_ColumnPropNameInTable="EmployeeColumn" msprop:Generator_UserColumnName="Employee" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Payment_x0020_Type" msprop:Generator_ColumnVarNameInTable="columnPayment_Type" msprop:Generator_ColumnPropNameInRow="Payment_Type" msprop:Generator_ColumnPropNameInTable="Payment_TypeColumn" msprop:Generator_UserColumnName="Payment Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ordPaid" msprop:Generator_ColumnVarNameInTable="columnordPaid" msprop:Generator_ColumnPropNameInRow="ordPaid" msprop:Generator_ColumnPropNameInTable="ordPaidColumn" msprop:Generator_UserColumnName="ordPaid" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WarrantyReport" msprop:Generator_TableClassName="WarrantyReportDataTable" msprop:Generator_TableVarName="tableWarrantyReport" msprop:Generator_TablePropName="WarrantyReport" msprop:Generator_RowDeletingName="WarrantyReportRowDeleting" msprop:Generator_RowChangingName="WarrantyReportRowChanging" msprop:Generator_RowEvHandlerName="WarrantyReportRowChangeEventHandler" msprop:Generator_RowDeletedName="WarrantyReportRowDeleted" msprop:Generator_UserTableName="WarrantyReport" msprop:Generator_RowChangedName="WarrantyReportRowChanged" msprop:Generator_RowEvArgName="WarrantyReportRowChangeEvent" msprop:Generator_RowClassName="WarrantyReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="serordDateIn" msprop:Generator_ColumnVarNameInTable="columnserordDateIn" msprop:Generator_ColumnPropNameInRow="serordDateIn" msprop:Generator_ColumnPropNameInTable="serordDateInColumn" msprop:Generator_UserColumnName="serordDateIn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="serordDateOut" msprop:Generator_ColumnVarNameInTable="columnserordDateOut" msprop:Generator_ColumnPropNameInRow="serordDateOut" msprop:Generator_ColumnPropNameInTable="serordDateOutColumn" msprop:Generator_UserColumnName="serordDateOut" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="serordIssue" msprop:Generator_ColumnVarNameInTable="columnserordIssue" msprop:Generator_ColumnPropNameInRow="serordIssue" msprop:Generator_ColumnPropNameInTable="serordIssueColumn" msprop:Generator_UserColumnName="serordIssue" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="serordWarranty" msprop:Generator_ColumnVarNameInTable="columnserordWarranty" msprop:Generator_ColumnPropNameInRow="serordWarranty" msprop:Generator_ColumnPropNameInTable="serordWarrantyColumn" msprop:Generator_UserColumnName="serordWarranty" type="xs:boolean" minOccurs="0" />
+              <xs:element name="receiptID" msprop:Generator_ColumnVarNameInTable="columnreceiptID" msprop:Generator_ColumnPropNameInRow="receiptID" msprop:Generator_ColumnPropNameInTable="receiptIDColumn" msprop:Generator_UserColumnName="receiptID" type="xs:int" />
+              <xs:element name="serviceID" msprop:Generator_ColumnVarNameInTable="columnserviceID" msprop:Generator_ColumnPropNameInRow="serviceID" msprop:Generator_ColumnPropNameInTable="serviceIDColumn" msprop:Generator_UserColumnName="serviceID" type="xs:int" />
+              <xs:element name="equipID" msprop:Generator_ColumnVarNameInTable="columnequipID" msprop:Generator_ColumnPropNameInRow="equipID" msprop:Generator_ColumnPropNameInTable="equipIDColumn" msprop:Generator_UserColumnName="equipID" type="xs:int" />
+              <xs:element name="ordNumber" msprop:Generator_ColumnVarNameInTable="columnordNumber" msprop:Generator_ColumnPropNameInRow="ordNumber" msprop:Generator_ColumnPropNameInTable="ordNumberColumn" msprop:Generator_UserColumnName="ordNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="serName" msprop:Generator_ColumnVarNameInTable="columnserName" msprop:Generator_ColumnPropNameInRow="serName" msprop:Generator_ColumnPropNameInTable="serNameColumn" msprop:Generator_UserColumnName="serName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="serPrice" msprop:Generator_ColumnVarNameInTable="columnserPrice" msprop:Generator_ColumnPropNameInRow="serPrice" msprop:Generator_ColumnPropNameInTable="serPriceColumn" msprop:Generator_UserColumnName="serPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ordDate" msprop:Generator_ColumnVarNameInTable="columnordDate" msprop:Generator_ColumnPropNameInRow="ordDate" msprop:Generator_ColumnPropNameInTable="ordDateColumn" msprop:Generator_UserColumnName="ordDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="serDescription" msprop:Generator_ColumnVarNameInTable="columnserDescription" msprop:Generator_ColumnPropNameInRow="serDescription" msprop:Generator_ColumnPropNameInTable="serDescriptionColumn" msprop:Generator_UserColumnName="serDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="equModel" msprop:Generator_ColumnVarNameInTable="columnequModel" msprop:Generator_ColumnPropNameInRow="equModel" msprop:Generator_ColumnPropNameInTable="equModelColumn" msprop:Generator_UserColumnName="equModel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="equSerial" msprop:Generator_ColumnVarNameInTable="columnequSerial" msprop:Generator_ColumnPropNameInRow="equSerial" msprop:Generator_ColumnPropNameInTable="equSerialColumn" msprop:Generator_UserColumnName="equSerial" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="manName" msprop:Generator_ColumnVarNameInTable="columnmanName" msprop:Generator_ColumnPropNameInRow="manName" msprop:Generator_ColumnPropNameInTable="manNameColumn" msprop:Generator_UserColumnName="manName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Manufacturer" msprop:Generator_TableClassName="ManufacturerDataTable" msprop:Generator_TableVarName="tableManufacturer" msprop:Generator_TablePropName="Manufacturer" msprop:Generator_RowDeletingName="ManufacturerRowDeleting" msprop:Generator_RowChangingName="ManufacturerRowChanging" msprop:Generator_RowEvHandlerName="ManufacturerRowChangeEventHandler" msprop:Generator_RowDeletedName="ManufacturerRowDeleted" msprop:Generator_UserTableName="Manufacturer" msprop:Generator_RowChangedName="ManufacturerRowChanged" msprop:Generator_RowEvArgName="ManufacturerRowChangeEvent" msprop:Generator_RowClassName="ManufacturerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="manName" msprop:Generator_ColumnVarNameInTable="columnmanName" msprop:Generator_ColumnPropNameInRow="manName" msprop:Generator_ColumnPropNameInTable="manNameColumn" msprop:Generator_UserColumnName="manName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Position" msprop:Generator_TableClassName="PositionDataTable" msprop:Generator_TableVarName="tablePosition" msprop:Generator_TablePropName="Position" msprop:Generator_RowDeletingName="PositionRowDeleting" msprop:Generator_RowChangingName="PositionRowChanging" msprop:Generator_RowEvHandlerName="PositionRowChangeEventHandler" msprop:Generator_RowDeletedName="PositionRowDeleted" msprop:Generator_UserTableName="Position" msprop:Generator_RowChangedName="PositionRowChanged" msprop:Generator_RowEvArgName="PositionRowChangeEvent" msprop:Generator_RowClassName="PositionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="posName" msprop:Generator_ColumnVarNameInTable="columnposName" msprop:Generator_ColumnPropNameInRow="posName" msprop:Generator_ColumnPropNameInTable="posNameColumn" msprop:Generator_UserColumnName="posName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Equip_type" msprop:Generator_TableClassName="Equip_typeDataTable" msprop:Generator_TableVarName="tableEquip_type" msprop:Generator_TablePropName="Equip_type" msprop:Generator_RowDeletingName="Equip_typeRowDeleting" msprop:Generator_RowChangingName="Equip_typeRowChanging" msprop:Generator_RowEvHandlerName="Equip_typeRowChangeEventHandler" msprop:Generator_RowDeletedName="Equip_typeRowDeleted" msprop:Generator_UserTableName="Equip_type" msprop:Generator_RowChangedName="Equip_typeRowChanged" msprop:Generator_RowEvArgName="Equip_typeRowChangeEvent" msprop:Generator_RowClassName="Equip_typeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="eqtType" msprop:Generator_ColumnVarNameInTable="columneqtType" msprop:Generator_ColumnPropNameInRow="eqtType" msprop:Generator_ColumnPropNameInTable="eqtTypeColumn" msprop:Generator_UserColumnName="eqtType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Product" msprop:Generator_TableClassName="ProductDataTable" msprop:Generator_TableVarName="tableProduct" msprop:Generator_TablePropName="Product" msprop:Generator_RowDeletingName="ProductRowDeleting" msprop:Generator_RowChangingName="ProductRowChanging" msprop:Generator_RowEvHandlerName="ProductRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductRowDeleted" msprop:Generator_UserTableName="Product" msprop:Generator_RowChangedName="ProductRowChanged" msprop:Generator_RowEvArgName="ProductRowChangeEvent" msprop:Generator_RowClassName="ProductRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="prodName" msprop:Generator_ColumnVarNameInTable="columnprodName" msprop:Generator_ColumnPropNameInRow="prodName" msprop:Generator_ColumnPropNameInTable="prodNameColumn" msprop:Generator_UserColumnName="prodName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prodDescription" msprop:Generator_ColumnVarNameInTable="columnprodDescription" msprop:Generator_ColumnPropNameInRow="prodDescription" msprop:Generator_ColumnPropNameInTable="prodDescriptionColumn" msprop:Generator_UserColumnName="prodDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prodBrand" msprop:Generator_ColumnVarNameInTable="columnprodBrand" msprop:Generator_ColumnPropNameInRow="prodBrand" msprop:Generator_ColumnPropNameInTable="prodBrandColumn" msprop:Generator_UserColumnName="prodBrand" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="service" msprop:Generator_TableClassName="serviceDataTable" msprop:Generator_TableVarName="tableservice" msprop:Generator_TablePropName="service" msprop:Generator_RowDeletingName="serviceRowDeleting" msprop:Generator_RowChangingName="serviceRowChanging" msprop:Generator_RowEvHandlerName="serviceRowChangeEventHandler" msprop:Generator_RowDeletedName="serviceRowDeleted" msprop:Generator_UserTableName="service" msprop:Generator_RowChangedName="serviceRowChanged" msprop:Generator_RowEvArgName="serviceRowChangeEvent" msprop:Generator_RowClassName="serviceRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="serName" msprop:Generator_ColumnVarNameInTable="columnserName" msprop:Generator_ColumnPropNameInRow="serName" msprop:Generator_ColumnPropNameInTable="serNameColumn" msprop:Generator_UserColumnName="serName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="serDescription" msprop:Generator_ColumnVarNameInTable="columnserDescription" msprop:Generator_ColumnPropNameInRow="serDescription" msprop:Generator_ColumnPropNameInTable="serDescriptionColumn" msprop:Generator_UserColumnName="serDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="serPrice" msprop:Generator_ColumnVarNameInTable="columnserPrice" msprop:Generator_ColumnPropNameInRow="serPrice" msprop:Generator_ColumnPropNameInTable="serPriceColumn" msprop:Generator_UserColumnName="serPrice" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EmployeeSimple" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="EmployeeDetails_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EmployeeDetails" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="CustomerSimple_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CustomerSimple" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="CustomerDetails_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CustomerDetails" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="CustomerUpdate_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CustomerUpdate" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="CustomerCreate_x002F_Delete_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CustomerCreate_x002F_Delete" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="WarrantyReport_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WarrantyReport" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Manufacturer_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Manufacturer" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Position_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Position" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Equip_type_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Equip_type" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Product_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Product" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="service_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:service" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
