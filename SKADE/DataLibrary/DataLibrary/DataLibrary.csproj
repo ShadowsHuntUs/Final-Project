@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -56,6 +56,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDS.cs">
+      <DependentUpon>AdminDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AuthDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="EmmasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -70,16 +83,29 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Emmas.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Emmas_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Emmas.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="AdminDS.xsc">
+      <DependentUpon>AdminDS.xsd</DependentUpon>
+    </None>
+    <None Include="AdminDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AdminDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AdminDS.xss">
+      <DependentUpon>AdminDS.xsd</DependentUpon>
+    </None>
     <None Include="app.config" />
+    <None Include="AuthDS.xsc">
+      <DependentUpon>AuthDS.xsd</DependentUpon>
+    </None>
+    <None Include="AuthDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AuthDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AuthDS.xss">
+      <DependentUpon>AuthDS.xsd</DependentUpon>
+    </None>
     <None Include="EmmasDataSet.xsc">
       <DependentUpon>EmmasDataSet.xsd</DependentUpon>
     </None>
@@ -107,6 +133,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Emmas.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emmas_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Emmas.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
