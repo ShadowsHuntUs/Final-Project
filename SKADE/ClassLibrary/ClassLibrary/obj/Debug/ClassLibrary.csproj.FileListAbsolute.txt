@@ -1,0 +1,4 @@
+C:\Users\Scott\Desktop\Final-Project-master\SKADE\ClassLibrary\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\Scott\Desktop\Final-Project-master\SKADE\ClassLibrary\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\Scott\Desktop\Final-Project-master\SKADE\ClassLibrary\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\Scott\Desktop\Final-Project-master\SKADE\ClassLibrary\ClassLibrary\obj\Debug\ClassLibrary.pdb
