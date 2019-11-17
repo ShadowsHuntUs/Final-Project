@@ -35,7 +35,7 @@ namespace FinalProject
                 {
                     label3.Text = "Success!";
                     
-                    Application.Run(new Main());
+                   // Application.Run(new Main());
                 }
                 else { label3.Text = "Failure!"; }
             }
